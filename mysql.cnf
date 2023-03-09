@@ -1,0 +1,12 @@
+# configuration file for threadPool
+ip=127.0.0.1
+port=3306
+username=root
+password=liu54420322
+dbname=chat
+initSize=10
+maxSize=100
+# time unit is second
+maxIdleTime=10
+# time unit is millisecond
+connectionTimeout=100
