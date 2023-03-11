@@ -2,11 +2,15 @@
 #include "public.h"
 #include "Connection.h"
 #include <iostream>
+#include <mutex>
 using namespace std;
 
+std::mutex g_MTX;
 Connection::Connection() {
+    std::lock_guard<std::mutex> lock(g_MTX);
     // wrap mysql connection
     _conn = mysql_init(nullptr);
+    if(_conn == nullptr) {cout << "_conn is null!" << endl; }
 }
 
 Connection::~Connection() {
